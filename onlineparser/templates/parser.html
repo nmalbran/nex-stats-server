@@ -3,7 +3,9 @@
 {% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_table}}
+        <p>Upload a <a href='http://www.alientrap.org/games/nexuiz'>Nexuiz</a> game log to compute statistics.</p>
+        {{form.as_p}}
+
         <input type="submit" value="Parse!">
 
     </form>
