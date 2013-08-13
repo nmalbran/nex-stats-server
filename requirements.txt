@@ -1,3 +1,4 @@
 Django==1.5.1
 argparse==1.2.1
 wsgiref==0.1.2
+-e git+https://github.com/nmalbran/NexuizLogParser#egg=NexuizLogParser
