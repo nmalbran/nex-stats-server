@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django.conf import settings
 
 from forms import LogForm
-from nexuiz_log_parser.nex_parser import NexuizLogParser, get_known_player_nicks
+from nexuiz_log_parser import NexuizLogParser, get_known_player_nicks
 import utils
 
 class ParserView(View):
@@ -23,7 +23,7 @@ class ParserView(View):
         if form.is_valid():
             filename = os.path.join(settings.MEDIA_ROOT, request.FILES['log'].name)
             utils.save_uploaded_file(filename, request.FILES['log'])
-            nlp = NexuizLogParser(get_known_player_nicks('nexuiz_log_parser.players.KNOWN_PLAYER_NICKS'))
+            nlp = NexuizLogParser(get_known_player_nicks('nexuiz_log_parser.players.PLAYERS'))
             nlp.parse_logs([filename.encode('ascii')])
             output = nlp.output(output='html')
 
