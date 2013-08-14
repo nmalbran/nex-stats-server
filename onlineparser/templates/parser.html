@@ -4,6 +4,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <p>Upload a <a href='http://www.alientrap.org/games/nexuiz'>Nexuiz</a> game log to compute statistics.</p>
+        <p>In order to work, the server config file must have:  <pre>sv_eventlog 1</pre></p>
         {{form.as_p}}
 
         <input type="submit" value="Parse!">
